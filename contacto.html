@@ -9,122 +9,152 @@
 </head>
 
 <body>
+    <div id="top"></div>
     <header>
-        <h1>Contacto</h1> 
+        <h1>Contacto</h1>
     </header>
 
-    <h2>Datos Personales</h2>
-    <form>
-        <label for="apellido">Ingrese su Apellido:</label> 
-        <input type="text" id="apellido" name="apellido" maxlength="20" required><br>
-        
-        <label for="nombre">Ingrese su nombre:</label>
-        <input type="text" id="nombre" name="nombre" maxlength="20" required><br>
-        
-        <label for="email">Ingrese su e-mail:</label>
-        <input type="email" name="email" id="email" required><br>
-        
-        <label for="numero">Ingrese su número:</label>
-        <input type="tel" id="numero" name="numero" placeholder="Ingrese su teléfono" onfocus="this.placeholder=''" required><br> <!-- Corregido el onfocus -->
-        
-        <label for="edad">Edad:</label> 
-        <input type="number" id="edad" name="edad" min="16" max="120" required><br>
-        
-        <label for="direccion">Dirección:</label>
-        <input type="text" id="direccion" name="direccion"><br>
-        
-        <label for="codigopostal">Código Postal:</label>
-        <input type="text" id="codigopostal" name="codigopostal" pattern="[A-Za-z]\d{4}[A-Za-z]{3}" title="Formato A1234ABC" required><br>
+    <main class="contenido">
+        <h2>Datos Personales</h2>
+        <form class="formulario-contacto">
+            <label class="etiqueta" for="apellido">Ingrese su Apellido:</label>
+            <input class="campo" type="text" id="apellido" name="apellido" maxlength="20">
 
-        <!-- Lista de provincias -->
-        <label for="province">Provincia:</label>
-        <input list="provinces" id="province" name="province" required>
-        <datalist id="provinces">
-            <option value="Tierra del Fuego">
-            <option value="Santa Cruz">
-            <option value="Chubut">
-            <option value="Río Negro">
-            <option value="Neuquén">
-            <option value="La Pampa">
-            <option value="Mendoza">
-            <option value="San Luis">
-            <option value="San Juan">
-            <option value="Córdoba">
-            <option value="Buenos Aires">
-            <option value="Santa Fe">
-            <option value="Entre Ríos">
-            <option value="Santiago del Estero">
-            <option value="La Rioja">
-            <option value="Catamarca">
-            <option value="Corrientes">
-            <option value="Formosa">
-            <option value="Chaco">
-            <option value="Salta">
-            <option value="Jujuy">
-            <option value="Misiones">
-            <option value="Tucumán">
-        </datalist>
+            <label class="etiqueta" for="nombre">Ingrese su nombre: (requerido) </label>
+            <input class="campo" type="text" id="nombre" name="nombre" maxlength="20" required>
 
-        <h2>Preferencia de contacto:</h2>
-        <fieldset>
-            <input type="radio" id="emailcontacto" name="Contacto" value="emailcontacto" checked>
-            <label for="emailcontacto">Correo electrónico</label><br>
-            <input type="radio" id="correopostal" name="Contacto" value="correopostal">
-            <label for="correopostal">Correo postal</label><br>
-            <input type="radio" id="telefonocontacto" name="Contacto" value="telefonocontacto">
-            <label for="telefonocontacto">Teléfono</label><br>
-        </fieldset>
+            <label class="etiqueta" for="email">Ingrese su e-mail: (requerido) </label>
+            <input class="campo" type="email" name="email" id="email" required>
 
-        <h2>Tipo de suscripción:</h2>
-        <fieldset>
-            <input type="checkbox" id="noticias" name="subscripcion" value="noticias">
-            <label for="noticias">Noticias</label><br>
-            <input type="checkbox" id="promociones" name="promociones" value="promociones">
-            <label for="promociones">Promociones</label><br>
-            <input type="checkbox" id="alertas" name="subscripcion" value="alertas" checked>
-            <label for="alertas">Alertas</label><br>
-            <input type="checkbox" id="eventos" name="subscripcion" value="eventos">
-            <label for="eventos">Eventos</label>
-        </fieldset>
+            <label class="etiqueta" for="numero">Ingrese su número:</label>
+            <input class="campo" type="tel" id="numero" name="numero" placeholder="Ingrese su teléfono">
 
-        <button type="submit">Enviar</button><br>
+            <label class="etiqueta" for="edad">Edad:</label>
+            <input class="campo" type="number" id="edad" name="edad" min="16" max="120">
 
-        <!-- Tabla -->
-        <table>
-            <tr>
-                <th>Campo</th>
-                <th>Valor</th>
-            </tr>
-            <tr>
-                <td>Edad</td>
-                <td id="tabla-edad"></td>
-            </tr>
-            <tr>
-                <td>Dirección</td>
-                <td id="tabla-direccion"></td>
-            </tr>
-            <tr>
-                <td>Provincia</td>
-                <td id="tabla-provincia"></td>
-            </tr>
-            <tr>
-                <td>Código Postal</td>
-                <td id="tabla-codigopostal"></td>
-            </tr>
-            <tr>
-                <td>Teléfono</td>
-                <td id="tabla-telefono"></td>
-            </tr>
-            <tr>
-                <td>Preferencia de contacto</td>
-                <td id="tabla-contacto"></td>
-            </tr>
-            <tr>
-                <td>Suscripción</td>
-                <td id="tabla-suscripcion"></td>
-            </tr>
-        </table>
+            <label class="etiqueta" for="direccion">Dirección:</label>
+            <input class="campo" type="text" id="direccion" name="direccion">
 
-    </form>
+            <label class="etiqueta" for="codigopostal">Código Postal:</label>
+            <input class="campo" type="text" id="codigopostal" name="codigopostal" pattern="[A-Z]\d{4}[A-Z]{3}"
+                title="Formato A1234ABC">
+
+            <!-- Lista de provincias -->
+            <label class="etiqueta" for="province">Provincia:</label>
+            <input class="campo" list="provinces" id="province" name="province" required>
+            <datalist id="provinces">
+                <option value="Tierra del Fuego">
+                <option value="Santa Cruz">
+                <option value="Chubut">
+                <option value="Río Negro">
+                <option value="Neuquén">
+                <option value="La Pampa">
+                <option value="Mendoza">
+                <option value="San Luis">
+                <option value="San Juan">
+                <option value="Córdoba">
+                <option value="Buenos Aires">
+                <option value="Santa Fe">
+                <option value="Entre Ríos">
+                <option value="Santiago del Estero">
+                <option value="La Rioja">
+                <option value="Catamarca">
+                <option value="Corrientes">
+                <option value="Formosa">
+                <option value="Chaco">
+                <option value="Salta">
+                <option value="Jujuy">
+                <option value="Misiones">
+                <option value="Tucumán">
+            </datalist>
+
+            <h2>Preferencia de contacto:</h2>
+            <fieldset>
+                <input type="radio" id="emailcontacto" name="Contacto" value="emailcontacto" checked>
+                <label for="emailcontacto">Correo electrónico</label><br>
+                <input type="radio" id="correopostal" name="Contacto" value="correopostal">
+                <label for="correopostal">Correo postal</label><br>
+                <input type="radio" id="telefonocontacto" name="Contacto" value="telefonocontacto">
+                <label for="telefonocontacto">Teléfono</label><br>
+            </fieldset>
+
+            <h2>Tipo de suscripción:</h2>
+            <fieldset>
+                <input type="checkbox" id="noticias" name="subscripcion" value="noticias">
+                <label for="noticias">Noticias</label><br>
+                <input type="checkbox" id="promociones" name="promociones" value="promociones">
+                <label for="promociones">Promociones</label><br>
+                <input type="checkbox" id="alertas" name="subscripcion" value="alertas" checked>
+                <label for="alertas">Alertas</label><br>
+                <input type="checkbox" id="eventos" name="subscripcion" value="eventos">
+                <label for="eventos">Eventos</label>
+            </fieldset>
+
+            <!-- Botón -->
+            <button type="submit" class="boton-enviar">Enviar</button>
+
+            <!-- Tabla -->
+            <table class="tabla-resultados">
+                <thead>
+                    <tr>
+                        <th>Campo</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <!--se le agergó thead y tbody-->
+                <tbody>
+                    <tr>
+                        <td>Nombre</td>
+                        <td id="tabla-nombre"></td>
+                    </tr>
+                    <tr>
+                        <td>Apellido</td>
+                        <td id="tabla-apellido"></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td id="tabla-email"></td>
+                    </tr>
+                    <tr>
+                        <td>Teléfono</td>
+                        <td id="tabla-telefono"></td>
+                    </tr>
+                    <tr>
+                        <td>Edad</td>
+                        <td id="tabla-edad"></td>
+                    </tr>
+                    <tr>
+                        <td>Dirección</td>
+                        <td id="tabla-direccion"></td>
+                    </tr>
+                    <tr>
+                        <td>Provincia</td>
+                        <td id="tabla-provincia"></td>
+                    </tr>
+                    <tr>
+                        <td>Código Postal</td>
+                        <td id="tabla-codigopostal"></td>
+                    </tr>
+                    <tr>
+                        <td>Preferencia de contacto</td>
+                        <td id="tabla-contacto"></td>
+                    </tr>
+                    <tr>
+                        <td>Suscripción</td>
+                        <td id="tabla-suscripcion"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </form>
+    </main>
+
+    <!--flechita para arriba-->
+    <a href="#top" class="flechita-arriba">↑</a>
+
+    <!-- Enlace a javascript -->
+    <script src="script.js"></script>
+    
 </body>
+
 </html>
