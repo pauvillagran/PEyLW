@@ -1,2 +1,5 @@
-# PEyLW
-Laboratorio de Programación Estática y Laboratorio Web - 2024
+> [!IMPORTANT]
+>  PEyLW - Programación Estática y Laboratorio Web
+
+> [!NOTE]
+> Repositorio de los laboratorios de Laboratorio de PEyLW-2024 
