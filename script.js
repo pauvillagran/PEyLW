@@ -1,60 +1,42 @@
-function actualizarTabla() {
-    
-    const nombre = document.getElementById("nombre").value;
-    const apellido = document.getElementById("apellido").value;
-    const email = document.getElementById("email").value;
-    const numero = document.getElementById("numero").value;
-    const edad = document.getElementById("edad").value;
-    const direccion = document.getElementById("direccion").value;
-    const codigopostal = document.getElementById("codigopostal").value;
-    const provincia = document.getElementById("province").value;
-    
-    // radio
-    const contacto = document.querySelector('input[name="Contacto"]:checked').nextElementSibling.innerText;
-    
-    // checkboxes
-    const suscripciones = Array.from(document.querySelectorAll('input[name="subscripcion"]:checked'))
-                               .map(s => s.nextElementSibling.innerText)
-                               .join(", ");
-    
-    // Tabla
-    document.getElementById("tabla-nombre").innerText = nombre;
-    document.getElementById("tabla-apellido").innerText = apellido;
-    document.getElementById("tabla-email").innerText = email;
-    document.getElementById("tabla-telefono").innerText = numero;
-    document.getElementById("tabla-edad").innerText = edad;
-    document.getElementById("tabla-direccion").innerText = direccion;
-    document.getElementById("tabla-codigopostal").innerText = codigopostal;
-    document.getElementById("tabla-provincia").innerText = provincia;
-    document.getElementById("tabla-contacto").innerText = contacto;
-    document.getElementById("tabla-suscripcion").innerText = suscripciones;
+const formulario = document.querySelector('.formulario-contacto');
+const tablaResultados = document.querySelector('.tabla-resultados tbody');
+
+formulario.addEventListener('submit', (evento) => {
+
+    evento.preventDefault();
+
+    const datos = {
+        apellido: document.getElementById('apellido').value,
+        nombre: document.getElementById('nombre').value,
+        email: document.getElementById('email').value,
+        telefono: document.getElementById('numero').value,
+        edad: document.getElementById('edad').value,
+        direccion: document.getElementById('direccion').value,
+        provincia: document.getElementById('province').value,
+        codigoPostal: document.getElementById('codigopostal').value,
+        contacto: document.querySelector('input[name="Contacto"]:checked').nextElementSibling.textContent,
+        suscripcion: obtenerSuscripciones() 
+    };
+
+    actualizarTabla(datos);
+});
+
+function obtenerSuscripciones() {
+    const checkboxes = document.querySelectorAll('input[name="subscripcion"]:checked');
+    const seleccionados = Array.from(checkboxes).map(checkbox => checkbox.nextElementSibling.textContent);
+    return seleccionados.join(', ') || 'Ninguna';
 }
 
-document.querySelectorAll(".campo").forEach(campo => {
-    campo.addEventListener("input", actualizarTabla);
-});
+function actualizarTabla(datos) {
 
-// Para radio
-document.querySelectorAll('input[name="Contacto"]').forEach(radio => {
-    radio.addEventListener("change", actualizarTabla);
-});
-
-// Para checkbox
-document.querySelectorAll('input[name="subscripcion"]').forEach(checkbox => {
-    checkbox.addEventListener("change", actualizarTabla);
-});
-
-// leer más 
-
-const botonLeerMas = document.getElementById("boton-leer-mas");
-const textoAdicional = document.getElementById("texto-adicional");
-
-botonLeerMas.addEventListener("click", () => {
-    if (textoAdicional.style.display === "none") {
-        textoAdicional.style.display = "inline";
-        botonLeerMas.textContent = "Leer menos";
-    } else {
-        textoAdicional.style.display = "none";
-        botonLeerMas.textContent = "Leer más";
-    }
-});
+    document.getElementById('tabla-apellido').textContent = datos.apellido || 'No ingresado';
+    document.getElementById('tabla-nombre').textContent = datos.nombre || 'No ingresado';
+    document.getElementById('tabla-email').textContent = datos.email || 'No ingresado';
+    document.getElementById('tabla-telefono').textContent = datos.telefono || 'No ingresado';
+    document.getElementById('tabla-edad').textContent = datos.edad || 'No ingresado';
+    document.getElementById('tabla-direccion').textContent = datos.direccion || 'No ingresado';
+    document.getElementById('tabla-provincia').textContent = datos.provincia || 'No ingresado';
+    document.getElementById('tabla-codigopostal').textContent = datos.codigoPostal || 'No ingresado';
+    document.getElementById('tabla-contacto').textContent = datos.contacto || 'No especificado';
+    document.getElementById('tabla-suscripcion').textContent = datos.suscripcion;
+}
